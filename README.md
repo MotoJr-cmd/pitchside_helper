@@ -4,7 +4,7 @@ Pitchside Helper HUD is an open-source, AI-driven tactical analysis tool designe
 While traditional platforms often penalize players based on isolated events (e.g., "Big Chance Missed"), Pitchside Helper utilizes real-time Computer Vision and advanced data scrapers to provide a Context-Aware evaluation of player performance.
 
 🚀 The Vision
-Traditional soccer grading is "horrendous" because it lacks context. A striker missing a 0.8 xG chance is often nuked in the ratings, regardless of the defensive pressure or the difficulty of the pass received.
+Traditional soccer grading is horrendous because it lacks context. A striker missing a 0.8 xG chance is often nuked in the ratings, regardless of the defensive pressure or the difficulty of the pass received.
 
 Pitchside Helper aims to be a "Statecast for the Everyman," providing:
 
@@ -32,7 +32,7 @@ AI Logic: Integration with Large Language Models (LLMs) for natural language tac
 
 [ ] Phase 3: The Overlay - Launching the borderless, transparent HUD for real-time match viewing.
 
-[ ] Phase 4: Predictive Analytics - Real-time "Next Play" probability based on player positioning.
+[ ] Phase 4: Predictive Analytics - Real-time Next Play probability based on player positioning.
 
 📝 License
 This project is licensed under the GNU GPLv3.
