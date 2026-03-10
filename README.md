@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ⚽ Pitchside Helper HUD
 Pitchside Helper HUD is an open-source, AI-driven tactical analysis tool designed to bridge the gap between "hard-coded" statistical grading and the actual tactical flow of a football match.
 
@@ -38,3 +39,6 @@ AI Logic: Integration with Large Language Models (LLMs) for natural language tac
 This project is licensed under the GNU GPLv3.
 
 Pitchside Helper is intended for educational and personal research purposes. If you use this code in your own project, you must keep it open-source and provide attribution to the original author.
+=======
+# Pitchside Helper HUD
+>>>>>>> 9f1b8ae (First commit: Initializing Pitchside Helper)
