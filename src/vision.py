@@ -13,7 +13,8 @@ from ultralytics import YOLO
 
 TARGET_CLASSES: List[int] = [0, 32]  # 0 = person, 32 = sports ball
 
-DEFAULT_MONITOR: Dict[str, int] = {"top": 40, "left": 0, "width": 800, "height": 640}
+DEFAULT_MONITOR: Dict[str, int] = {
+    "top": 0, "left": 0, "width": 1280, "height": 720}
 
 
 def get_device() -> str:
@@ -146,7 +147,7 @@ def run_screen_capture(
                     cv2.LINE_AA,
                 )
 
-                cv2.imshow("Pitchside Screen Analytics", rendered)
+                cv2.imshow("Pitchside Analytics - Screen Feed", rendered)
 
                 key = cv2.waitKey(1) & 0xFF
                 if key == ord("q"):
@@ -155,7 +156,8 @@ def run_screen_capture(
 
                 frame_count += 1
                 if max_frames is not None and frame_count >= max_frames:
-                    print(f"[vision] Reached max_frames={max_frames}, exiting loop.")
+                    print(
+                        f"[vision] Reached max_frames={max_frames}, exiting loop.")
                     break
     finally:
         cv2.destroyAllWindows()
@@ -197,6 +199,30 @@ def parse_args() -> argparse.Namespace:
             "Primarily useful for automated testing."
         ),
     )
+    parser.add_argument(
+        "--top",
+        type=int,
+        default=DEFAULT_MONITOR["top"],
+        help="Capture region top offset in pixels (default: 0).",
+    )
+    parser.add_argument(
+        "--left",
+        type=int,
+        default=DEFAULT_MONITOR["left"],
+        help="Capture region left offset in pixels (default: 0).",
+    )
+    parser.add_argument(
+        "--width",
+        type=int,
+        default=DEFAULT_MONITOR["width"],
+        help="Capture region width in pixels (default: 1280).",
+    )
+    parser.add_argument(
+        "--height",
+        type=int,
+        default=DEFAULT_MONITOR["height"],
+        help="Capture region height in pixels (default: 720).",
+    )
     return parser.parse_args()
 
 
@@ -205,9 +231,16 @@ def main() -> None:
     device = get_device()
     model = load_model(args.weights, device=device)
 
+    monitor: Dict[str, int] = {
+        "top": args.top,
+        "left": args.left,
+        "width": args.width,
+        "height": args.height,
+    }
+
     run_screen_capture(
         model=model,
-        monitor=DEFAULT_MONITOR,
+        monitor=monitor,
         imgsz=args.imgsz,
         classes=TARGET_CLASSES,
         conf=args.conf,
@@ -217,4 +250,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-

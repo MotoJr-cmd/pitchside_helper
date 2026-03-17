@@ -5,3 +5,4 @@ lxml>=5.0.0
 ultralytics
 opencv-python
 mss
+numpy
